@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {storiesOf, action, module, StorySet} from 'kadira-storybook';
+import {storiesOf, action, module} from 'kadira-storybook';
 
 storiesOf('Button', module)
     .add('with text', () => (
@@ -9,7 +9,7 @@ storiesOf('Button', module)
         <button></button>
     ));
 
-const CenterDecorator = (story: StorySet) => (
+const CenterDecorator = (story: Function) => (
     <div style={{ textAlign: "center" }}>
         {story()}
     </div>
