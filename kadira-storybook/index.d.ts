@@ -9,14 +9,18 @@ export = ReactStorybook;
 export as namespace ReactStorybook;
 
 declare namespace ReactStorybook {
-    var module: any;
+    let module: any;
+
+    interface StoryCreator {
+        (): React.ReactElement<any>;
+    }
 
     interface StoryDecorator {
-        (story: Function, context: { kind: string, story: string }): Object;
+        (story: StoryCreator, context: {kind: string, story: string}): Object;
     }
 
     interface Story {
-        add (storyName: string, callback: Function): Story;
+        add (storyName: string, creator: StoryCreator): Story;
         addDecorator (decorator: StoryDecorator): Story;
     }
 
