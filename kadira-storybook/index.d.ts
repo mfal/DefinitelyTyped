@@ -9,19 +9,19 @@ export = ReactStorybook;
 export as namespace ReactStorybook;
 
 declare namespace ReactStorybook {
-    export var module: any;
+    var module: any;
 
-    export interface StoryDecorator {
+    interface StoryDecorator {
         (story: Function, context: { kind: string, story: string }): Object;
     }
 
-    export interface Story {
+    interface Story {
         add (storyName: string, callback: Function): Story;
         addDecorator (decorator: StoryDecorator): Story;
     }
 
-    export function addDecorator(decorator: StoryDecorator): void;
-    export function linkTo(name: string, ...params: any[]): React.EventHandler<any>;
-    export function storiesOf(name: string, module: any): Story;
-    export function action(name: string, ...params: any[]): any;
+    function addDecorator(decorator: StoryDecorator): void;
+    function linkTo(name: string, ...params: any[]): React.EventHandler<any>;
+    function storiesOf(name: string, module: any): Story;
+    function action(name: string, ...params: any[]): any;
 }
